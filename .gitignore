@@ -1,0 +1,3 @@
+# 忽略node express函式庫
+/node_modules 
+.DS_store

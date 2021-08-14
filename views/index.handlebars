@@ -1,0 +1,74 @@
+{{!-- 主頁列表 --}}
+<!-- search bar -->
+<div class="container search-bar">
+  <div class="search-bar-outer">
+    <div class="search-bar-inner">
+      <form action="/search" class="">
+        <h4 class="mb-2">尋找餐廳：</h4>
+        <div class="input-group">
+          <input type="search" name="keyword" class="form-control {{invalidClass}}" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..." 
+            value="{{keyword}}" aria-describedby="search-button">
+          <div class="input-group-append">
+            <button class="btn btn-major" type="submit" id="search-button"><i class="fas fa-search"></i></button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{{#if invalidClass}}
+  <div class="row mt-3">
+    <div class="col-12 text-center no-data">
+      <h5>哈囉，你忘了打關鍵字囉🤷‍♂🤷‍♀️～</h5>
+      <a href="/" class="btn btn-major mx-auto"><i class="far fa-times-circle mr-2"></i>清除提示</a>
+    </div>
+  </div>
+{{/if}}
+
+<!-- restaurant list -->
+{{#if data}}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-10 col-12 mx-auto">
+      <div class="card-columns">
+        {{#each data}}
+        <a href="/restaurants/{{this.id}}" class="text-secondary">
+          <div class="card mb-3">
+            <img class="card-img-top" src="{{this.image}}"
+              alt="{{this.name}}">
+            <div class="card-body p-3">
+              <h6 class="card-title mb-1">{{this.name}}</h6>
+
+              <div class="restaurant-category mb-1">
+                <i class="fas fa-utensils pr-2"></i> {{this.category}}
+              </div>
+
+              <span class="badge badge-pill badge-danger font-weight-normal">
+                {{this.rating}}
+                <i class="fas fa-star fa-xs"></i>
+              </span>
+
+            </div>
+          </div>
+        </a>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
+{{/if}}
+
+
+
+
+{{#unless data}}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12 text-center no-data">
+      <h2>今晚，沒辦法來點『{{keyword}}』了😩😞～</h2>
+    <a href="/" class="btn btn-major mx-auto mt-4"><i class="far fa-times-circle mr-2"></i>再找找看吧～</a>
+    </div>
+  </div>
+</div>
+{{/unless}}
