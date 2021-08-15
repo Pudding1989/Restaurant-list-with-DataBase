@@ -14,6 +14,18 @@ app.use(express.static('public'))
 //載入清單餐廳JSON資料
 const restaurantData = require('./restaurant.json')
 
+// 載入mongoose
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
+//回報連線狀況
+dataBase = mongoose.connection
+dataBase.on('error', () => {
+  console.log('！！MongoDB errorError！！')
+})
+dataBase.once('open', () => {
+  console.log('MongoDB Connected  ｡:.ﾟヽ(*´∀`)ﾉﾟ.:｡ ')
+})
+
 //預設路由
 app.get('/', (req, res) => {
   res.render('index', { alt: '我的餐廳清單', data: restaurantData.results })
