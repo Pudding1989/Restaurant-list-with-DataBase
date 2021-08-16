@@ -111,6 +111,15 @@ app.post('/restaurants/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
+//Delete功能
+app.get('/restaurants/:id/delete', (req, res) => {
+  const id = req.params.id
+  return Restaurant.findById(id)
+    .then(restaurantData => restaurantData.remove())
+    .then(() => res.redirect('/'))
+    .catch(error => console.log(error))
+})
+
 //監聽伺服器
 app.listen(port, () => {
   console.log(`NOW, Express is start listening on http://localhost:${port}`)
