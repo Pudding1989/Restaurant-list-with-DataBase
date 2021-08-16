@@ -23,19 +23,22 @@ dataBase.once('open', () => {
   console.log('MongoDB Connected  ｡:.ﾟヽ(*´∀`)ﾉﾟ.:｡ ')
 })
 
+//body-parser
+app.use(express.urlencoded({ extended: true }))
+
 //載入model
 const Restaurant = require('./models/restaurant')
 
 //首頁路由
 app.get('/', (req, res) => {
-  Restaurant.find()
+  return Restaurant.find()
     .lean()
     .then(restaurantData => res.render('index', { alt: '我的餐廳清單', restaurantData }))
     .catch(error => console.error(error))
 })
 
 //個別資料路由
-app.get('/restaurants/:id', (req, res) => {
+app.get('/restaurants/:id/show', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
     .lean()
@@ -43,20 +46,33 @@ app.get('/restaurants/:id', (req, res) => {
     .catch(error => console.error(error))
 })
 
+//Create 功能
+app.get('/restaurants/new', (req, res) => {
+  return Restaurant.find()
+    .lean()
+    .then(restaurantData => res.render('new', { alt: '我的餐廳清單', restaurantData }))
+    .catch(error => console.error(error))
+})
 
-  //搜尋結果路由
-  // app.get('/search', (req, res) => {
-  //   const keyword = req.query.keyword.trim()
-  //   let invalidClass = ''
-  //   if (!keyword.length) invalidClass = "is-invalid"
-  //   //先搜尋店名再搜尋種類
-  //   const result = restaurantData.results.filter(object => {
-  //     return object.name.toLowerCase().includes(keyword.toLowerCase()) || object.category.includes(keyword)
-  //   })
-  //   res.render('index', { alt: '我的餐廳清單', keyword, invalidClass, data: result })
-  // })
+app.post('/restaurants', (req, res) => {
+  //接收request body
+  const name = req.body.name
+  const name_en = req.body.name_en
+  const category = req.body.category
+  const image = req.body.image
+  const location = req.body.location
+  const phone = req.body.phone
+  const google_map = req.body.google_map
+  const rating = req.body.rating
+  const description = req.body.description
 
-  //監聽伺服器
-  app.listen(port, () => {
-    console.log(`NOW, Express is start listening on http://localhost:${port}`)
-  })
+  return Restaurant
+    .create({ name, name_en, category, image, location, phone, google_map, rating, description })
+    .then(() => res.redirect(`/`))
+    .catch(error => console.log(error))
+})
+
+//監聽伺服器
+app.listen(port, () => {
+  console.log(`NOW, Express is start listening on http://localhost:${port}`)
+})

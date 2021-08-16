@@ -19,7 +19,7 @@
 
 {{#if invalidClass}}
   <div class="row mt-3">
-    <div class="col-12 text-center no-data">
+    <div class="col-12 text-center text-major">
       <h5>哈囉，你忘了打關鍵字囉🤷‍♂🤷‍♀️～</h5>
       <a href="/" class="btn btn-major mx-auto"><i class="far fa-times-circle mr-2"></i>清除提示</a>
     </div>
@@ -33,7 +33,7 @@
     <div class="col-md-10 col-12 mx-auto">
       <div class="card-columns">
         {{#each restaurantData}}
-        <a href="/restaurants/{{this._id}}" class="text-secondary">
+        <a href="/restaurants/{{this._id}}/show" class="text-secondary">
           <div class="card mb-3">
             <img class="card-img-top" src="{{this.image}}"
               alt="{{this.name}}">
@@ -62,10 +62,10 @@
 
 
 
-{{#unless data}}
+{{#unless restaurantData}}
 <div class="container mt-5">
   <div class="row">
-    <div class="col-12 text-center no-data">
+    <div class="col-12 text-center text-major">
       <h2>今晚，沒辦法來點『{{keyword}}』了😩😞～</h2>
     <a href="/" class="btn btn-major mx-auto mt-4"><i class="far fa-times-circle mr-2"></i>再找找看吧～</a>
     </div>
