@@ -72,6 +72,45 @@ app.post('/restaurants', (req, res) => {
     .catch(error => console.log(error))
 })
 
+//Edit功能
+app.get('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Restaurant
+    .findById(id)
+    .lean()
+    .then(restaurantData => res.render('edit', { restaurantData }))
+    .catch(error => console.log(error))
+})
+
+app.post('/restaurants/:id/edit', (req, res) => {
+  const id = req.params.id
+
+  const name = req.body.name
+  const name_en = req.body.name_en
+  const category = req.body.category
+  const image = req.body.image
+  const location = req.body.location
+  const google_map = req.body.google_map
+  const rating = req.body.rating
+  const description = req.body.description
+
+  return Restaurant
+    .findById(id)
+    .then(restaurantData => {
+      restaurantData.name = name
+      restaurantData.name_en = name_en
+      restaurantData.category = category
+      restaurantData.image = image
+      restaurantData.location = location
+      restaurantData.google_map = google_map
+      restaurantData.rating = rating
+      restaurantData.description = description
+      return restaurantData.save()
+    })
+    .then(() => res.redirect(`/restaurants/${id}/show`))
+    .catch(error => console.log(error))
+})
+
 //監聽伺服器
 app.listen(port, () => {
   console.log(`NOW, Express is start listening on http://localhost:${port}`)

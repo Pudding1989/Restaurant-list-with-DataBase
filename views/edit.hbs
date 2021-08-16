@@ -1,0 +1,86 @@
+<h1 class="mb-1 restaurant-show-title">編輯餐廳資訊</h1>
+<p class="text-info text-center">* 為必填欄位</p>
+
+<div class="container">
+  <div class="col-10 mx-auto">
+    <form action="/restaurants/{{restaurantData._id}}/edit" method="POST">
+
+      <div class="form-group row text-center  align-items-center mb-4">
+        <label for="name" class="col-2 col-form-label-lg text-major">餐廳名稱</label>
+        <div class="col-8"><input type="text" class="form-control" id="name" name="name" value="{{restaurantData.name}}" placeholder="餐廳名稱" required>
+        </div>
+        <span class="text-info col-1 col-form-label-lg">*</span>
+      </div>
+
+      <div class="form-group row text-center  align-items-center mb-4">
+        <label for="name_en" class="col-2 col-form-label-lg text-major">英文名稱</label>
+        <div class="col-8"><input type="text" class="form-control" id="name_en" name="name_en" value="{{restaurantData.name_en}}" placeholder="Restaurant Name">
+        </div>
+      </div>
+
+      <div class="form-group row text-center  align-items-center mb-4">
+        <label for="category" class="col-2 col-form-label-lg text-major">餐廳類型</label>
+        <div class="col-8">
+          <input type="text" class="form-control" id="category" name="category" value="{{restaurantData.category}}" placeholder="餐廳類型" required>
+        </div>
+
+        <span class="text-info col-1 col-form-label-lg">*</span>
+      </div>
+
+
+      <div class="form-group row text-center  align-items-center mb-4">
+        <label for="name_en" class="col-2 col-form-label-lg text-major">照片網址</label>
+        <div class="col-8"><input type="text" class="form-control" id="image" name="image" value="{{restaurantData.image}}" 
+            placeholder="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/5720/restaurants-list-cover.jpg"
+            required>
+        </div>
+        <span class="text-info col-1 col-form-label-lg">*</span>
+      </div>
+
+      <div class="form-group row text-center  align-items-center mb-4">
+        <label for="location" class="col-2 col-form-label-lg text-major">所在地址</label>
+        <div class="col-8"><input type="text" class="form-control" id="location" name="location" value="{{restaurantData.location}}"
+        placeholder="台北市信義區信義路五段7號" required>
+        </div>
+        <span class="text-info col-1 col-form-label-lg">*</span>
+      </div>
+
+      <div class="form-group row text-center  align-items-center mb-4">
+        <label for="phone" class="col-2 col-form-label-lg text-major">聯絡電話</label>
+        <div class="col-8"><input type="text" class="form-control" id="phone" name="phone" value="{{restaurantData.phone}}"
+        placeholder="02 8101 8800" maxlength="12" required>
+        </div>
+        <span class="text-info col-1 col-form-label-lg">*</span>
+      </div>
+
+      <div class="form-group row text-center  align-items-center mb-4">
+        <label for="google_map" class="col-2 col-form-label-lg text-major">Google map</label>
+        <div class="col-8"><input type="text" class="form-control" id="google_map" name="google_map" value="{{restaurantData.google_map}}" 
+            placeholder="https://goo.gl/maps/Fw1iZEC48iSwkSds9">
+        </div>
+      </div>
+
+      <div class="form-group row text-center  align-items-center mb-4">
+        <label for="rating" class="col-2 col-form-label-lg text-major">評價</label>
+        <div class="col-8">
+          <input type="number" class="form-control" id="rating" name="rating" value="{{restaurantData.rating}}" min="0" max="5" step="0.1"
+            placeholder="0～5.0分" required>
+          </input>
+        </div>
+        <span class="text-info col-1 col-form-label-lg">*</span>
+      </div>
+
+      <div class="form-group row text-center  align-items-center mb-4">
+        <label for="description" class="col-2 col-form-label-lg text-major">餐廳簡介</label>
+        <div class="col-8">
+          <textarea placeholder="說說看有多好吃吧~" class="form-control" id="description" name="description">{{restaurantData.description}}</textarea>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-4 mb-5">
+        <button class="btn btn-major btn-lg" type="submit"><i class="fas fa-check-circle mr-2"></i>完成編輯</button>
+      </div>
+
+    </form>
+  </div>
+</div>

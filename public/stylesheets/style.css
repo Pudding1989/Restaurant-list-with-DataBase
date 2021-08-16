@@ -35,6 +35,7 @@ header {
   color: #9b4b4b;
 }
 
+
 .form-control::placeholder {
   color: #aaaaaa;
   font-size: 0.8rem;
@@ -42,8 +43,14 @@ header {
 
 .btn-major {
   background-color: #9b4b4b;
-  color: white;
+  color: #fce2cf;
 }
+
+.btn-major:hover {
+  background-color: #7c3c3c;
+  color: #fdf0e7;
+}
+
 
 .form-control:focus {
   box-shadow: none;

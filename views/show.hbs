@@ -34,9 +34,22 @@
         {{object.description}}
       </p>
 
-      <img class="rounded mx-auto d-block mb-4 w-100"
-        src="{{object.image}}" alt="{{object.name}}"
+      <img class="rounded mx-auto d-block mb-4 w-100" src="{{object.image}}" alt="{{object.name}}"
         style="max-width: 600px;">
     </div>
+  </div>
+  <div class="row ">
+    <div class="col-12 text-center mt-3 mb-5">
+      <a href="/"><button type="button"
+          class="btn btn-major px-3">返回清單</button></a>
+      <a href="/restaurants/{{object._id}}/edit"><button type="button"
+          class="btn btn-info px-3 ml-2">編輯</button></a>
+      <a href="/restaurants/{{object._id}}/remove"><button type="button"
+          class="btn btn-outline-danger ml-5">刪除</button></a>
+    </div>
+
+
+
+
   </div>
 </div>
