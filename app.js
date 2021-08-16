@@ -72,7 +72,7 @@ app.post('/restaurants', (req, res) => {
     .catch(error => console.log(error))
 })
 
-//Edit功能
+//Update功能
 app.get('/restaurants/:id/edit', (req, res) => {
   const id = req.params.id
   return Restaurant
@@ -118,6 +118,21 @@ app.get('/restaurants/:id/delete', (req, res) => {
     .then(restaurantData => restaurantData.remove())
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
+})
+
+
+//Search 功能
+app.get('/search', (req, res) => {
+  const keyword = req.query.keyword.trim()
+  let invalidClass = ''
+  if (!keyword.length) invalidClass ='is-invalid'
+
+  const keywordRegex = new RegExp(keyword, 'i')
+  Restaurant.find({ $or: [{ name: { $regex: keywordRegex } }, { category: { $regex: keywordRegex } }] })
+    .lean()
+    .then(restaurantData => {
+      res.render('index', { invalidClass, keyword, restaurantData })
+    })
 })
 
 //監聽伺服器
