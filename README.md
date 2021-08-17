@@ -40,21 +40,23 @@
 
 ### 開啟『終端機 Termial.app』，或在Ｗindows開啟『命令提示字元 cmd』執行以下指令  
 <br>
-1. 啟動伺服器
 
-   1. 移動至伺服器資料夾下層，「bin」執行檔資料夾  
-   
-```
-cd 「mongodb(MongoDB Community Server) 資料夾路徑」\bin
-```
-   2. 執行下列指令，啟動資料庫伺服器
+1. 移動至伺服器資料夾「mongodb」，下一層執行檔資料夾「bin」
+
+    ```
+    cd 「mongodb(MongoDB Community Server) 資料夾路徑」\bin
+    ```
+
+2. 執行下列指令，啟動資料庫伺服器
+
 - 瀏覽網站時，要保持資料庫伺服器運作，否則網站將無法讀取資料
-```
-./mongod --dbpath 「mongodb-data」(資料庫資料夾)完整路徑
-```  
+
+   ```
+   ./mongod --dbpath 「mongodb-data」(資料庫資料夾)完整路徑
+   ```  
 <br>
 
-### 另外開啟一個終端機視窗，並保持資料庫伺服器運作在執行中
+### 另外開啟一個終端機視窗，並保持資料庫伺服器持續執行中
 <br>
 
 1. 移動到專案資料夾  
@@ -67,7 +69,7 @@ cd 「專案資料夾路徑」 (資料夾名稱間的空格要用「 / 」隔開
 npm run seed
 ```
 
-1. 安裝本專案使用的套件
+3. 安裝本專案使用的套件
 ```
 npm install
 ```
@@ -76,8 +78,7 @@ npm install
 npm run dev
 ```
 - 當終端機顯示訊息 `NOW, Express is start listening on http://localhost:3000` ，表示已成功開啟應用程式伺服器
-- 當終端機顯示訊息 `MongoDB Connected  ｡:.ﾟヽ(*´∀`)ﾉﾟ.:｡ ` ，表示已成功連線至資料庫伺服器
-
+- 當終端機顯示訊息 `MongoDB Connected  ｡:.ﾟヽ(*´∀`)ﾉﾟ.:｡  ，表示已成功連線至資料庫伺服器
 
 5. 於瀏覽器開啟網站
 ```
