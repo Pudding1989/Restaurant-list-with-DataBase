@@ -52,8 +52,8 @@
             </div>
             {{!-- 按鈕 --}}
             <div class="card-footer d-flex justify-content-end">
-              <a href="./restaurants/{{this._id}}/show"><button type="button" class="btn btn-major btn-sm px-3">更多..</button></a>
-              <a href="./restaurants/{{this._id}}/edit"><button type="button" class="btn btn-info btn-sm px-3 ml-2">編輯</button></a>
+              <a href="./restaurants/{{this._id}}/edit"><button type="button" class="btn btn-info btn-sm px-3">編輯</button></a>
+              <a href="./restaurants/{{this._id}}/show"><button type="button" class="btn btn-major btn-sm px-3 ml-2">更多..</button></a>
               <a href="./restaurants/{{this._id}}/delete"><button type="button" class="btn btn-outline-danger btn-sm ml-3">刪除</button></a>
             </div>
 
@@ -73,8 +73,21 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-12 text-center text-major">
+      {{#if keyword}}
       <h2>今晚，沒辦法來點『{{keyword}}』了😩😞～</h2>
+      {{/if}}
+
+      {{#unless keyword}}
+      <h2>😭😭沒有餐廳的資料了😩😞～</h2>
+      {{/unless}}
+
+      {{#if keyword}}
       <a href="/" class="btn btn-major btn-lg mx-auto mt-5"><i class="far fa-times-circle mr-2"></i>再找找看吧～</a>
+      {{/if}}
+
+      {{#unless keyword}}
+      <a href="/restaurants/new" class="btn btn-major btn-lg mx-auto mt-5"><i class="fas fa-cloud-upload-alt mr-2"></i>快去增加餐廳資料吧</a>
+      {{/unless}}
     </div>
   </div>
 </div>
