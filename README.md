@@ -91,6 +91,9 @@ http://localhost:3000/
 
 後端框架
 - Node.js: 10.15.0
+  <br><br>
+  語意化路由套件
+  - Method-override: 3.0.0
 
 後端套件
 - Node Express: 4.17.1

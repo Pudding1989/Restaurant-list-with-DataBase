@@ -47,7 +47,7 @@
         <button type="button" class="btn btn-info px-3 ml-2">編輯</button>
       </a>
 
-      <form action="/restaurants/{{object._id}}/delete" style='display:inline;' method="post">
+      <form action="/restaurants/{{object._id}}?_method=DELETE" style='display:inline;' method="post">
         <button type="submit" class="btn btn-outline-danger ml-5">刪除</button>
       </form>
     </div>
