@@ -1,13 +1,11 @@
-const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
+//由mongoose統一連接資料庫
+const dataBase = require('../../config/mongoose')
 
+//載入模型、資料來源
 const Restaurant = require('../restaurant')
 const restaurantData = require('../../restaurant.json').results
 
-const database = mongoose.connection
-database.on('error', () => console.log('！！MongoDB Error！！'))
-
-database.once('open', () => {
+dataBase.once('open', () => {
   console.log('Seeder connect to MongoDB ｡:.ﾟヽ(*´∀`)ﾉﾟ.:｡ ')
   //用Json資料套用
   restaurantData.forEach(object => {
@@ -23,5 +21,6 @@ database.once('open', () => {
       description: object.description,
     })
   })
+
   console.log('播種完畢 <(￣︶￣)>')
 })
