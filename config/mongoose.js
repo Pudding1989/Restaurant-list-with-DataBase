@@ -2,7 +2,7 @@
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://localhost/restaurant-list', { useNewUrlParser: true, useUnifiedTopology: true })
 
-//回報連線狀況
+// 回報連線狀況
 const dataBase = mongoose.connection
 
 dataBase.on('error', () => {

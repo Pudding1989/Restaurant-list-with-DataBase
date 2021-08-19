@@ -9,8 +9,8 @@ router.get('/', (req, res) => {
   if (!keyword.length) invalidClass = 'is-invalid'
 
   const keywordRegex = new RegExp(keyword, 'i')
-  Restaurant.
-    find({ $or: [{ name: { $regex: keywordRegex } }, { category: { $regex: keywordRegex } }] })
+  return Restaurant
+    .find({ $or: [{ name: { $regex: keywordRegex } }, { category: { $regex: keywordRegex } }] })
     .lean()
     .then(restaurantData => {
       res.render('index', { invalidClass, keyword, restaurantData })

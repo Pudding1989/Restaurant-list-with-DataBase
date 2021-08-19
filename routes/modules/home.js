@@ -1,4 +1,4 @@
-//首頁路由
+// 首頁路由
 const express = require('express')
 const router = express.Router()
 

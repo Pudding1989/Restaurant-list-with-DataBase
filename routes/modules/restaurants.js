@@ -2,12 +2,12 @@
 const express = require('express')
 const router = express.Router()
 
-//載入模型
+// 載入模型
 const Restaurant = require('../../models/restaurant')
 
 // * Create 功能
 // NOTE: 一定要在 GET /restaurant/:id
-//不然會被：id攔截
+// 不然會被：id攔截
 router.get('/new', (req, res) => {
   return Restaurant.find()
     .lean()
@@ -16,7 +16,7 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-  //接收request body
+  // 接收request body
   const name = req.body.name
   const name_en = req.body.name_en
   const category = req.body.category
@@ -29,11 +29,11 @@ router.post('/', (req, res) => {
 
   return Restaurant
     .create({ name, name_en, category, image, location, phone, google_map, rating, description })
-    .then(() => res.redirect(`/`))
+    .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
 
-//個別資料路由
+// 個別資料路由
 router.get('/:id', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
@@ -42,7 +42,7 @@ router.get('/:id', (req, res) => {
     .catch(error => console.error(error))
 })
 
-//Update功能
+// Update功能
 router.get('/:id/edit', (req, res) => {
   const id = req.params.id
   return Restaurant
@@ -83,7 +83,7 @@ router.put('/:id', (req, res) => {
     .catch(error => console.log(error))
 })
 
-//Delete功能
+// Delete功能
 router.delete('/:id/', (req, res) => {
   const id = req.params.id
   return Restaurant.findById(id)
@@ -92,6 +92,5 @@ router.delete('/:id/', (req, res) => {
     .catch(error => console.log(error))
 })
 
-
-//!NOTE: 記得匯出模組
+// !NOTE: 記得匯出模組
 module.exports = router
