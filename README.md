@@ -16,7 +16,7 @@
   - [X] 搜尋餐廳名稱
   - [X] 搜尋餐廳類別
 
-## 安裝方式 Installation
+## 1.安裝專案資料
 1. 將原始碼安裝至指定位置，你可以採取下列其中一種方法
     1. 點選左上方綠色『Code』按鈕，選擇『Download ZIP』下載ZIP檔，並解壓縮至專案資料夾中。
     
@@ -37,8 +37,12 @@
    3. 可以與專案原始碼資料夾不同位置，但「mongodb」(資料庫伺服器資料夾)及「mongodb-data」(資料庫資料夾)
 
 <br>
+<br>
 
-### 開啟『終端機 Termial.app』，或在Ｗindows開啟『命令提示字元 cmd』執行以下指令  
+### 開啟『終端機 Termial.app』，或在Ｗindows開啟『命令提示字元 cmd』執行以下指令
+<br>
+
+## 2.啟動資料庫
 <br>
 
 1. 移動至伺服器資料夾「mongodb」，下一層執行檔資料夾「bin」
@@ -55,8 +59,12 @@
    ./mongod --dbpath 「mongodb-data」(資料庫資料夾)完整路徑
    ```  
 <br>
+<br>
 
 ### 另外開啟一個終端機視窗，並保持資料庫伺服器持續執行中
+<br>
+
+## 3.啟動專案
 <br>
 
 1. 移動到專案資料夾  
@@ -109,7 +117,7 @@ http://localhost:3000/
 
   Bootstrap JavaScript plugin
     - JQuery: 3.6.0
-    - Popper: 2.9.1
+    - Popper: 1.16.1 min UMD build
 
 圖示套件
 - Font Awesome: 5.15.4

@@ -20,8 +20,65 @@ header {
   filter: blur(3px);
 }
 
+.container.search-bar{
+  display: flex;
+  max-width: 80%;
+}
+
+form.sort-by {
+  position: relative;
+  top: -20px;
+  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.1));
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+form.sort-by select{
+  margin-right: 0.75rem;
+  color: #9b4b4b;
+}
+
+form.sort-by select:focus{
+  border-color: #9b4b4b;
+  box-shadow: 0 0 0 0.2rem rgba(155, 75, 75, 0.25);
+}
+
+select.order  {
+width: 3.25rem;
+
+}
+
+select.sort  {
+  width: 7rem;
+}
+
+/* 首頁排序 Dropdown */
+.sort.dropdown{
+  position: relative;
+  top: -6px;
+  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.1));
+  margin-left: 3rem;
+  z-index: 2;
+}
+
+.sort .dropdown-menu{
+  background-color: #fce2cf;
+  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.1));
+}
+
+.sort .dropdown-menu .dropdown-item{
+  color: #7c3c3c;
+}
+.sort .dropdown-menu .dropdown-item:hover{
+  color: #fce2cf;
+  background-color: #9b4b4b;
+  opacity: 70%;
+}
+
 .search-bar .search-bar-outer {
   margin: 0 auto;
+  min-width: 340px;
   max-width: 680px;
   background-color: #fce2cf;
   border-radius: 8px;
@@ -34,6 +91,7 @@ header {
 .search-bar .search-bar-inner h4, .text-major {
   color: #9b4b4b;
 }
+
 
 
 .form-control::placeholder {

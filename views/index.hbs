@@ -1,6 +1,6 @@
 {{!-- 主頁列表 --}}
-<!-- search bar -->
 <div class="container search-bar">
+  <!-- search bar -->
   <div class="search-bar-outer">
     <div class="search-bar-inner">
       <form action="/search" class="">
@@ -15,6 +15,41 @@
       </form>
     </div>
   </div>
+
+  {{!-- 排序select --}}
+<form action="/sort" method="GET" class="sort-by">
+<select name="order" class="order custom-select custom-select-sm">
+  <option value="" {{#if asc}}selected{{/if}}>▲</option>
+  <option value="-" {{#if desc}}selected{{/if}}>▼</option>
+</select>
+
+<select name="sort" class="sort custom-select custom-select-sm">
+  <option value="_id" {{#if uid}}selected{{/if}}>新增時間</option>
+  <option value="name" {{#if name}}selected{{/if}}>餐廳名稱</option>
+  <option value="category" {{#if category}}selected{{/if}}>餐廳類型</option>
+  <option value="location" {{#if location}}selected{{/if}}>所在地區</option>
+  <option value="rating" {{#if rating}}selected{{/if}}>餐廳評價</option>
+</select>
+
+<button type="submit" class="btn btn-major">排序</button>
+</form>
+
+  {{!-- <div class="sort dropdown">
+    <button class="btn btn-major btn-sm dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      {{#if sortBy}}<i class="fas fa-sort-alpha-down mr-2"></i>{{sortBy}}
+      {{else}}選擇排序方式
+      {{/if}}
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <button class="dropdown-item" value="_id" href="/sort/_id">新增時間</button>
+      <a class="dropdown-item" value="name" href="/sort/name">餐廳名稱</a>
+      <a class="dropdown-item" value="category" href="/sort/name">餐廳類型</a>
+      <a class="dropdown-item" value="location" href="/sort/location">所在地區</a>
+      <a class="dropdown-item" value="rating" href="/sort/rating">餐廳評價</a>
+    </div>
+  </div> --}}
+  
 </div>
 
 {{#if invalidClass}}
@@ -52,8 +87,10 @@
             </div>
             {{!-- 按鈕 --}}
             <div class="card-footer d-flex justify-content-end">
-              <a href="./restaurants/{{this._id}}/edit"><button type="button" class="btn btn-info btn-sm px-3">編輯</button></a>
-              <a href="./restaurants/{{this._id}}"><button type="button" class="btn btn-major btn-sm px-3 ml-2">更多..</button></a>
+              <a href="/restaurants/{{this._id}}/edit"><button type="button"
+                  class="btn btn-info btn-sm px-3">編輯</button></a>
+              <a href="/restaurants/{{this._id}}"><button type="button"
+                  class="btn btn-major btn-sm px-3 ml-2">更多..</button></a>
               <form action="/restaurants/{{this._id}}?_method=DELETE" style='display:inline;' method="post">
                 <button type="submit" class="btn btn-outline-danger btn-sm ml-3">刪除</button>
               </form>
@@ -81,7 +118,8 @@
       {{#if keyword}}
       <a href="/" class="btn btn-major btn-lg mx-auto mt-5"><i class="far fa-times-circle mr-2"></i>再找找看吧～</a>
       {{else}}
-      <a href="/restaurants/new" class="btn btn-major btn-lg mx-auto mt-5"><i class="fas fa-cloud-upload-alt mr-2"></i>快去增加餐廳資料吧</a>
+      <a href="/restaurants/new" class="btn btn-major btn-lg mx-auto mt-5"><i
+          class="fas fa-cloud-upload-alt mr-2"></i>快去增加餐廳資料吧</a>
       {{/if}}
 
     </div>

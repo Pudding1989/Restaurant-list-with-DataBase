@@ -34,19 +34,20 @@ const restaurantSchema = new Schema({
   },
 
   google_map: {
-    type: 'string',
+    type: 'string'
   },
 
   rating: {
     type: 'Number',
     min: 0,
     max: 5,
-    required: true,
+    required: true
   },
 
   description: {
-    type: 'string',
-  },
+    type: 'string'
+  }
 })
-//輸出為大寫表示為建構式
+
+// 輸出為大寫表示為建構式
 module.exports = mongoose.model('Restaurant', restaurantSchema)
