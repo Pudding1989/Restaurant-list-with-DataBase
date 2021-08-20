@@ -38,18 +38,18 @@
         style="max-width: 600px;">
     </div>
   </div>
-  <div class="row ">
-    <div class="col-12 text-center mt-3 mb-5">
+  <div class="row">
+    <class class="interactive col-12 mt-3 mb-5">
       <a href="/">
         <button type="button" class="btn btn-major px-3">返回清單</button>
       </a>
       <a href="/restaurants/{{object._id}}/edit">
-        <button type="button" class="btn btn-info px-3 ml-2">編輯</button>
+        <button type="button" class="btn btn-info px-3">編輯</button>
       </a>
 
       <form action="/restaurants/{{object._id}}?_method=DELETE" style='display:inline;' method="post">
-        <button type="submit" class="btn btn-outline-danger ml-5">刪除</button>
+        <button type="submit" class="show-delete btn btn-outline-danger">刪除</button>
       </form>
-    </div>
+    </class>
   </div>
 </div>

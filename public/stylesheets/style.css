@@ -35,7 +35,7 @@ form.sort-by {
 }
 
 form.sort-by select{
-  margin-right: 0.75rem;
+  margin: 0.5rem;
   color: #9b4b4b;
 }
 
@@ -51,6 +51,11 @@ width: 3.25rem;
 
 select.sort  {
   width: 7rem;
+}
+
+form.sort-by button{
+  margin: 0.5rem;
+  min-width: 3.5rem;
 }
 
 /* 首頁排序 Dropdown */
@@ -121,6 +126,7 @@ select.sort  {
 
 .card img{
   height: 180px;
+  object-fit: cover
 }
 
 .card-title{
@@ -143,6 +149,24 @@ select.sort  {
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+/* new page & edit page */
+.form-group label{
+  text-align: center;
+}
+
+/* show Page */
+.interactive {
+  text-align: center;
+}
+
+.interactive button{
+  margin-left: 0.5rem;
+}
+
+button.show-delete{
+  margin-left: 3rem;
+}
+
 @media screen and (max-width: 992px) {
   
   .card img{
@@ -155,6 +179,17 @@ select.sort  {
   .restaurant-show-title {
     font-size: 2rem;
   }
+
+.container.search-bar{
+  display: flex;
+  max-width: 100%;
+}
+
+  form.sort-by {
+  display: block;
+  left: 0.25rem;
+}
+
 }
 
 @media screen and (max-width: 575px) {
@@ -162,6 +197,31 @@ select.sort  {
   .card img{
     height: auto;
   }
-  
+
+  .container.search-bar{
+  display: block;
+}
+
+  form.sort-by {
+  top: 1rem;
+}
+
+/* new Page & edit Page */
+.form-group label{
+  text-align: left;
+}
+
+.interactive {
+  text-align: left;
+}
+
+.interactive button{
+  margin: 0 0 0.5rem;
+}
+
+button.show-delete{
+  display: block;
+}
+
 }
 
