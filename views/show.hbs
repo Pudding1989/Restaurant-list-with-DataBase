@@ -46,10 +46,31 @@
       <a href="/restaurants/{{object._id}}/edit">
         <button type="button" class="btn btn-info px-3">編輯</button>
       </a>
+      {{!-- Modal button --}}
+      <button type="button" class="show-delete btn btn-outline-danger" data-toggle="modal" data-target="#delete-{{object._id}}">刪除</button>
 
-      <form action="/restaurants/{{object._id}}?_method=DELETE" style='display:inline;' method="post">
-        <button type="submit" class="show-delete btn btn-outline-danger">刪除</button>
-      </form>
     </class>
   </div>
 </div>
+
+{{!-- Modal --}}
+<div class="modal fade" id="delete-{{object._id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title text-danger">確定要刪除嗎？</h3>
+        <button type="button" class="close text-right" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-major mr-3" data-dismiss="modal">返回</button>
+        <form action="/restaurants/{{object._id}}?_method=DELETE" style='display:inline;' method="post">
+          <button type="submit" class="btn btn-outline-danger">確認刪除</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div><!-- Modal -->
