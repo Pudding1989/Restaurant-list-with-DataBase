@@ -4,25 +4,9 @@ const router = express.Router()
 const Restaurant = require('../../models/restaurant')
 
 router.get('/', (req, res) => {
-  const order = req.query.order
-  let asc = ''
-  let desc = ''
-
-  switch (order) {
-    case '': asc = true
-      break
-    case '-': desc = true
-      break
-    default: asc = true
-      break
-  }
-
-  let sort = req.query.sort
-  let name = ''
-  let category = ''
-  let location = ''
-  let rating = ''
-  let uid = ''
+  let { order, sort } = req.query
+  let [asc, desc, name, category, location, rating, uid] = ['', '', '', '', '', '', '']
+  order ? desc = true : asc = true
 
   switch (sort) {
     case 'name': name = true
